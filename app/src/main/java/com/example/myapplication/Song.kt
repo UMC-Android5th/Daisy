@@ -1,10 +1,11 @@
 package com.example.myapplication
 
 data class Song(
-    val title: String = "",
-    val singer: String ="",
-    val second: Int =0,
-    val playTime: Int=0,
-    //val isPlaying:Boolean=false
-    var isPlaying: Boolean = false
+    var title: String = "",
+    var singer: String ="",
+    var second: Int =0,
+    var playTime: Int=0,
+    var isPlaying: Boolean = true,
+    var music: String = ""
+
 )
