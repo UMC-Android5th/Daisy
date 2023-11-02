@@ -51,7 +51,7 @@ class SongActivity : AppCompatActivity() {
         }
         binding.nuguBtnPauseIv.setOnClickListener {
             setPlayerStatus(true)
-            mediaPlayer?.pause() // MediaPlayer를 일시 중지합니다.
+            mediaPlayer?.pause() // MediaPlayer를 일시 중지
         }
 
         binding.nuguBtnRandomInactiveIv.setOnClickListener {
