@@ -47,7 +47,7 @@ class SongActivity : AppCompatActivity() {
 
         binding.nuguBtnPlayIv.setOnClickListener {
             setPlayerStatus(false)
-            mediaPlayer?.start() // MediaPlayer를 시작
+            mediaPlayer?.start() // MediaPlayer를 시작.
         }
         binding.nuguBtnPauseIv.setOnClickListener {
             setPlayerStatus(true)
