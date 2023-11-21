@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ExpandableListView.OnChildClickListener
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.databinding.ItemAlbumBinding
+import com.example.myapplication.databinding.ItemStoredalbumBinding
 import java.util.ArrayList
 
-class AlbumRVAdapter(private val albumList: ArrayList<Album>): RecyclerView.Adapter<AlbumRVAdapter.ViewHolder>() {
+class AlbumStoredRVAdapter(private val albumList: ArrayList<Album>): RecyclerView.Adapter<AlbumStoredRVAdapter.ViewHolder>() {
 
     interface MyItemClickListener {
         fun  onItemClick(album: Album)
@@ -30,13 +30,13 @@ class AlbumRVAdapter(private val albumList: ArrayList<Album>): RecyclerView.Adap
         albumList.removeAt(position)
         notifyDataSetChanged()
     }
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): AlbumRVAdapter.ViewHolder {
-        val binding: ItemAlbumBinding = ItemAlbumBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): AlbumStoredRVAdapter.ViewHolder {
+        val binding: ItemStoredalbumBinding = ItemStoredalbumBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
 
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: AlbumRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AlbumStoredRVAdapter.ViewHolder, position: Int) {
         holder.bind(albumList[position])
         holder.itemView.setOnClickListener{mItemClickListener.onItemClick(albumList[position])}
         //holder.binding.homePannelAlbumTodayTitleTv.setOnClickListener { mItemClickListener.onRemoveAlbum(position) }
@@ -44,11 +44,11 @@ class AlbumRVAdapter(private val albumList: ArrayList<Album>): RecyclerView.Adap
     }
 
     override fun getItemCount(): Int = albumList.size
-    inner class ViewHolder(val binding: ItemAlbumBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ItemStoredalbumBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(album: Album) {
-            binding.itemAlbumTitleTv.text = album.title
-            binding.itemAlbumSingerTv.text = album.singer
+            binding.storedItemAlbumTitleTv.text = album.title
+            binding.storedItemAlbumSingerTv.text = album.singer
             binding.itemAlbumCoverImgIv.setImageResource(album.coverImg!!)
 
             binding.itemAlbumPlayImgIv.setOnClickListener{

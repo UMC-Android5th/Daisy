@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     //    }
     //}
 
+    private val albumRVAdapter = AlbumRVAdapter(ArrayList())
+
     companion object {
         const val STRING_INTENT_KEY = "my_string_key"
     }
@@ -64,6 +66,23 @@ class MainActivity : AppCompatActivity() {
         //}
 
         //
+
+        albumRVAdapter.setMyItemClickListener(object : AlbumRVAdapter.MyItemClickListener {
+            override fun onItemClick(album: Album) {
+                // 앨범을 클릭한 경우 처리
+            }
+
+            override fun onRemoveAlbum(position: Int) {
+                // 앨범을 제거한 경우 처리
+            }
+
+            override fun onPlayButtonClick(album: Album) {
+                // 플레이 버튼을 누른 경우 처리
+                updateMiniPlayer(album)
+            }
+        })
+
+
         binding.mainPlayerCl.setOnClickListener {
             val intent = Intent(this, SongActivity::class.java)
             getResultText.launch(intent) // SongActivity 호출
@@ -92,6 +111,13 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("Song", song.title + song.singer)
 
+    }
+
+    private fun updateMiniPlayer(album: Album) {
+        // album을 이용하여 미니플레이어를 업데이트하는 로직 작성
+        binding.mainMiniplayerTitleTv.text = album.title
+        binding.mainMiniplayerSingerTv.text = album.singer
+        // 그 외 필요한 업데이트 작업 수행
     }
 
     private fun initBottomNavigation(){
