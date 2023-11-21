@@ -12,7 +12,6 @@ class AlbumStoredRVAdapter(private val albumList: ArrayList<Album>): RecyclerVie
     interface MyItemClickListener {
         fun  onItemClick(album: Album)
         fun onRemoveAlbum(position: Int)
-
         fun onPlayButtonClick(album: Album)
     }
 
@@ -31,7 +30,12 @@ class AlbumStoredRVAdapter(private val albumList: ArrayList<Album>): RecyclerVie
         notifyDataSetChanged()
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): AlbumStoredRVAdapter.ViewHolder {
-        val binding: ItemStoredalbumBinding = ItemStoredalbumBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        //val binding: ItemStoredalbumBinding = ItemStoredalbumBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        val binding: ItemStoredalbumBinding = ItemStoredalbumBinding.inflate(
+            LayoutInflater.from(viewGroup.context),
+            viewGroup,
+            false
+        )
 
         return ViewHolder(binding)
     }
@@ -39,7 +43,10 @@ class AlbumStoredRVAdapter(private val albumList: ArrayList<Album>): RecyclerVie
     override fun onBindViewHolder(holder: AlbumStoredRVAdapter.ViewHolder, position: Int) {
         holder.bind(albumList[position])
         holder.itemView.setOnClickListener{mItemClickListener.onItemClick(albumList[position])}
+        //holder.binding.storedSongMore01Iv.setOnClickListener { mItemClickListener.onRemoveAlbum(position) }
         //holder.binding.homePannelAlbumTodayTitleTv.setOnClickListener { mItemClickListener.onRemoveAlbum(position) }
+        //holder.binding.storedSongMore01Iv.setOnClickListener { mItemClickListener.onRemoveAlbum(position) }
+        holder.binding.storedSongMore01Iv.setOnClickListener { removeItem(position) }
 
     }
 
