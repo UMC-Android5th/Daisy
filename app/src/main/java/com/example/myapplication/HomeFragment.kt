@@ -41,7 +41,13 @@ class HomeFragment : Fragment() {
         binding.homeTodayMusicRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         albumRVAdapter.setMyItemClickListener(object: AlbumRVAdapter.MyItemClickListener{
-            override fun onItemClick(album: Album) {
+
+            override fun  onItemClick(album: Album) {}
+            override fun onRemoveAlbum(position: Int) {}
+            override fun onPlayButtonClick(album: Album) {
+            }
+
+            //override fun onItemClick(album: Album) {
                 //(context as MainActivity).supportFragmentManager.beginTransaction()
                 //    .replace(R.id.main_frm, AlbumFragment().apply {
                 //        arguments=Bundle().apply {
@@ -51,12 +57,12 @@ class HomeFragment : Fragment() {
                 //        }
                 //    })
                 //    .commitAllowingStateLoss()
-                changeAlbumFragment(album)
-            }
+                //changeAlbumFragment(album)
+            //}
 
-            override fun onRemoveAlbum(position: Int) {
-                albumRVAdapter.removeItem(position)
-            }
+            //override fun onRemoveAlbum(position: Int) {
+                //albumRVAdapter.removeItem(position)
+            //}
         })
 
 

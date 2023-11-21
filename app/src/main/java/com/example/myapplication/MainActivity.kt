@@ -14,7 +14,19 @@ import androidx.activity.result.ActivityResult
 import android.widget.Toast
 import com.google.gson.Gson
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AlbumRVAdapter.MyItemClickListener{
+
+    override fun onItemClick(album: Album) {
+        // 앨범을 클릭한 경우 처리
+    }
+
+    override fun onRemoveAlbum(position: Int) {
+        // 앨범을 제거한 경우 처리
+    }
+
+    override fun onPlayButtonClick(album: Album) {
+        updateMiniPlayer(album)
+    }
 
     //companion object { const val STRING_INTENT_KEY = "my_string_key"}
 
@@ -42,6 +54,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun updateMiniPlayer(album: Album) {
+        binding?.let {
+            it.mainMiniplayerTitleTv.text = album.title
+            it.mainMiniplayerSingerTv.text = album.singer
+
+            // 여기에 미니플레이어 업데이트 관련 로직을 추가하세요.
+            // 예를 들어, 미니플레이어의 이미지 업데이트 등을 수행할 수 있습니다.
+        }
+        //binding?.mainMiniplayerTitleTv?.text = album.title
+        //binding?.mainMiniplayerSingerTv?.text = album.singer
+        //Song( album.title, album.singer, 0, 60, false, "flo_music")
+
+        // 미니플레이어 업데이트 관련 로직 추가
+
+        // 아래의 예시는 미니플레이어에 앨범 이미지 업데이트 예시
+        // binding.mainMiniplayerCoverImg.setImageResource(album.coverImg!!)
+    }
+
 //
 
     lateinit var binding: ActivityMainBinding
@@ -67,20 +98,19 @@ class MainActivity : AppCompatActivity() {
 
         //
 
-        albumRVAdapter.setMyItemClickListener(object : AlbumRVAdapter.MyItemClickListener {
-            override fun onItemClick(album: Album) {
-                // 앨범을 클릭한 경우 처리
-            }
-
-            override fun onRemoveAlbum(position: Int) {
-                // 앨범을 제거한 경우 처리
-            }
-
-            override fun onPlayButtonClick(album: Album) {
-                // 플레이 버튼을 누른 경우 처리
-                updateMiniPlayer(album)
-            }
-        })
+//        albumRVAdapter.setMyItemClickListener(object : AlbumRVAdapter.MyItemClickListener {
+//            override fun onItemClick(album: Album) {
+//                // 앨범을 클릭한 경우 처리
+//            }
+//
+//            override fun onRemoveAlbum(position: Int) {
+//                // 앨범을 제거한 경우 처리
+//            }
+//
+//            override fun onPlayButtonClick(album: Album) {
+//                updateMiniPlayer(album)
+//            }
+//        })
 
 
         binding.mainPlayerCl.setOnClickListener {
@@ -111,13 +141,6 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("Song", song.title + song.singer)
 
-    }
-
-    private fun updateMiniPlayer(album: Album) {
-        // album을 이용하여 미니플레이어를 업데이트하는 로직 작성
-        binding.mainMiniplayerTitleTv.text = album.title
-        binding.mainMiniplayerSingerTv.text = album.singer
-        // 그 외 필요한 업데이트 작업 수행
     }
 
     private fun initBottomNavigation(){
