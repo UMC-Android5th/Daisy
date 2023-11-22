@@ -1,3 +1,4 @@
+/*
 package com.example.myapplication
 
 import android.os.Bundle
@@ -30,7 +31,7 @@ class StoredMusicFragment: Fragment() {
             add(Album("Weekend", "태연 (Tae Yeon)", R.drawable.img_album_exp6))
         }
 
-        val albumRVAdapter = AlbumStoredRVAdapter(albumDatas)
+        val albumRVAdapter = SavedSongRVAdapter(albumDatas)
         binding.storedMusicRv.adapter = albumRVAdapter
         binding.storedMusicRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
@@ -43,3 +44,5 @@ class StoredMusicFragment: Fragment() {
         return binding.root
     }
 }
+
+ */

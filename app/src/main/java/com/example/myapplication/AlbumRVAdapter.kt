@@ -56,6 +56,11 @@ class AlbumRVAdapter(private val albumList: ArrayList<Album>): RecyclerView.Adap
             binding.itemAlbumPlayImgIv.setOnClickListener{
                 mItemClickListener.onPlayButtonClick(album)
             }
+
+            // 아래 코드를 추가하여 cover 이미지를 클릭했을 때 앨범 프래그먼트로 이동
+            binding.itemAlbumCoverImgCardView.setOnClickListener {
+                mItemClickListener.onItemClick(album)
+            }
         }
 
 

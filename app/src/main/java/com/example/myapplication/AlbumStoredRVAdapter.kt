@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+/*
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ExpandableListView.OnChildClickListener
@@ -68,4 +69,5 @@ class AlbumStoredRVAdapter(private val albumList: ArrayList<Album>): RecyclerVie
 
     }
 
-}
+
+}*/
