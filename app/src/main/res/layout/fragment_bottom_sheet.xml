@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     tools:context=".BottomSheetFragment"
-    android:background="@color/select_color">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/bottom_sheet_tv1"
@@ -16,7 +16,6 @@
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="듣기"
-        android:background="@color/transparent"
         android:textSize="15sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +37,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@color/transparent"
         android:gravity="center"
         android:text="재생목록"
         android:textColor="@color/black"
@@ -62,7 +60,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@color/transparent"
         android:gravity="center"
         android:text="내 리스트"
         android:textColor="@color/black"
@@ -86,7 +83,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@color/transparent"
         android:gravity="center"
         android:text="삭제"
         android:textColor="@color/black"

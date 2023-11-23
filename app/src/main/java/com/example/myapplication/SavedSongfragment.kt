@@ -24,6 +24,11 @@ class SavedSongFragment : Fragment() {
 
         songDB = SongDatabase.getInstance(requireContext())!!
 
+        val bottomSheetFragment = BottomSheetFragment()
+        binding.playlistSelectOffIb.setOnClickListener {
+            bottomSheetFragment.show(requireFragmentManager(), "BottomSheetDialog")
+        }
+
         return binding.root
     }
 
