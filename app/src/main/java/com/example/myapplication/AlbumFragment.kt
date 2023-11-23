@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TableLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentAlbumBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 
 class AlbumFragment : Fragment() {
     lateinit var binding : FragmentAlbumBinding
+    private var gson: Gson = Gson()
 
     private val information = arrayListOf("수록곡", "상세정보", "영상")
     override fun onCreateView(
@@ -22,6 +22,10 @@ class AlbumFragment : Fragment() {
 
     ): View? {
         binding = FragmentAlbumBinding.inflate(inflater, container, false)
+
+        val albumJson = arguments?.getString("album")
+        val album = gson.fromJson(albumJson, Album::class.java)
+        setInit(album)
 
         binding.btnArrowBlackIb.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm,HomeFragment()).commitAllowingStateLoss()
@@ -37,5 +41,11 @@ class AlbumFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun setInit(album: Album) {
+        binding.imgAlbum5thLilacIv.setImageResource(album.coverImage!!)
+        binding.album5thTitleTv.text = album.title.toString()
+        binding.album5thSingerTv.text = album.singer.toString()
     }
 }

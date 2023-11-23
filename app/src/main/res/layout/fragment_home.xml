@@ -253,6 +253,17 @@
             app:layout_constraintTop_toBottomOf="@id/home_pannel_vp"
             app:layout_constraintStart_toEndOf="@id/home_pannel_domestic_tv"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_today_music_rv"
+            android:layout_height="210dp"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_today_music_tv"
+            tools:listitem="@layout/item_album"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal" />
+
+
+        <!--
         <ImageView
             android:id="@+id/home_pannel_today_album_iv"
             android:layout_width="150dp"
@@ -347,6 +358,7 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/home_pannel_album_today_title_tv_3"
             app:layout_constraintTop_toBottomOf="@id/home_pannel_album_today_title_tv_3"/>
+            -->
 
         <!--<ImageView
             android:id="@+id/home_pannel_viewpager_iv"
@@ -365,8 +377,8 @@
             android:layout_height="100dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="50dp"
-            app:layout_constraintStart_toStartOf="@+id/home_pannel_album_today_singer_tv"
-            app:layout_constraintTop_toBottomOf="@id/home_pannel_album_today_singer_tv"/>
+            app:layout_constraintStart_toStartOf="@+id/home_today_music_rv"
+            app:layout_constraintTop_toBottomOf="@id/home_today_music_rv"/>
 
         <TextView
             android:id="@+id/home_pannel_allday_tv"
