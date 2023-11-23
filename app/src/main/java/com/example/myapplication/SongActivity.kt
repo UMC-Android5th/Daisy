@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivitySongBinding
 import androidx.activity.result.ActivityResult
 import android.util.Log
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.TextView
 import com.example.flo.SongDatabase
 import com.google.gson.Gson
 
@@ -34,6 +38,20 @@ class SongActivity : AppCompatActivity() {
         //initSong()
         initClickListener()
     }
+
+    fun customToastView(text: String) {
+        val inflater: LayoutInflater = layoutInflater
+        val layout: View = inflater.inflate(R.layout.custom_toast, findViewById<ViewGroup>(R.id.toast_layout_root))
+        val textView: TextView = layout.findViewById(R.id.textboard)
+        textView.text = text
+
+        val toastView: Toast = Toast.makeText(applicationContext, text, Toast.LENGTH_SHORT)
+        toastView.setGravity(Gravity.BOTTOM, 0, 30)
+        toastView.view = layout
+        toastView.show()
+    }
+
+
     override fun onBackPressed() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
@@ -60,6 +78,7 @@ class SongActivity : AppCompatActivity() {
             moveSong(-1)
         }
         binding.icMyLikeOffIv.setOnClickListener {
+            customToastView("Like Click")
             setLike(songs[nowPos].isLike)
         }
     }

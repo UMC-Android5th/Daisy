@@ -354,7 +354,8 @@ class MainActivity : AppCompatActivity(){
 */
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()  {
+
     private lateinit var binding: ActivityMainBinding
     private var gson: Gson = Gson()
     private var song: Song = Song()
@@ -438,6 +439,7 @@ class MainActivity : AppCompatActivity() {
                 "music_lilac",
                 R.drawable.img_album_exp2,
                 false,
+                //1
             )
         )
 
@@ -451,6 +453,7 @@ class MainActivity : AppCompatActivity() {
                 "music_flu",
                 R.drawable.img_album_exp2,
                 false,
+                //1
             )
         )
 
@@ -464,6 +467,7 @@ class MainActivity : AppCompatActivity() {
                 "music_butter",
                 R.drawable.img_album_exp,
                 false,
+                //2
             )
         )
 
@@ -477,6 +481,7 @@ class MainActivity : AppCompatActivity() {
                 "music_next",
                 R.drawable.img_album_exp3,
                 false,
+                //3
             )
         )
 
@@ -490,6 +495,7 @@ class MainActivity : AppCompatActivity() {
                 "music_lilac",
                 R.drawable.img_album_exp4,
                 false,
+                //4
             )
         )
 
@@ -503,6 +509,7 @@ class MainActivity : AppCompatActivity() {
                 "music_bboom",
                 R.drawable.img_album_exp5,
                 false,
+                //5
             )
         )
 

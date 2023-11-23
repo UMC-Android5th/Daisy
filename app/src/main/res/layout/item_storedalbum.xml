@@ -61,6 +61,14 @@
         app:layout_constraintStart_toStartOf="@id/item_album_cover_img_cardView"
         app:layout_constraintTop_toTopOf="@id/item_album_cover_img_cardView" />
 
+    <Switch
+        android:id="@+id/switchToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/item_album_cover_img_cardView"
+        app:layout_constraintEnd_toStartOf="@+id/stored_song_play_01_iv"
+        app:layout_constraintTop_toTopOf="@+id/item_album_cover_img_cardView" />
+
     <ImageView
         android:id="@+id/stored_song_play_01_iv"
         android:layout_width="50dp"

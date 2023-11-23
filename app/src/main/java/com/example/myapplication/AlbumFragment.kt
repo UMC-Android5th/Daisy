@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TableLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentAlbumBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -46,7 +44,7 @@ class AlbumFragment : Fragment() {
     }
 
     private fun setInit(album: Album) {
-        binding.imgAlbum5thLilacIv.setImageResource(album.coverImg!!)
+        binding.imgAlbum5thLilacIv.setImageResource(album.coverImage!!)
         binding.album5thTitleTv.text = album.title.toString()
         binding.album5thSingerTv.text = album.singer.toString()
     }
