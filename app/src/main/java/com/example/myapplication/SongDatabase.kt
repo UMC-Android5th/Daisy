@@ -7,6 +7,8 @@ import androidx.room.RoomDatabase
 import com.example.myapplication.Album
 //import com.example.myapplication.AlbumDao
 import com.example.myapplication.Song
+import com.example.myapplication.User
+import com.example.myapplication.UserDao
 
 
 /*
@@ -36,10 +38,11 @@ abstract class SongDatabase: RoomDatabase() {
  */
 
 //@Database(entities = [Song::class, Album::class], version = 1)
-@Database(entities = [Song::class], version = 1)
+@Database(entities = [Song::class, User::class], version = 1)
 abstract class SongDatabase: RoomDatabase() {
     abstract fun songDao(): SongDao
     //abstract fun albumDao(): AlbumDao
+    abstract fun UserDao(): UserDao
 
     companion object {
         private var instance: SongDatabase? = null
